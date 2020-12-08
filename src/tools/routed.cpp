@@ -137,7 +137,7 @@ inline unsigned generateServerProgramOptions(const int argc,
          value<int>(&config.max_locations_trip)->default_value(100),
          "Max. locations supported in trip query") //
         ("max-table-size",
-         value<int>(&config.max_locations_distance_table)->default_value(100),
+         value<float>(&config.max_locations_distance_table)->default_value(100),
          "Max. locations supported in distance table query") //
         ("max-matching-size",
          value<int>(&config.max_locations_map_matching)->default_value(100),
