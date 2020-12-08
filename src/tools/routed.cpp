@@ -26,6 +26,7 @@
 #include <new>
 #include <string>
 #include <thread>
+#include <cstdint>
 
 #ifdef _WIN32
 boost::function0<void> console_ctrl_function;
@@ -137,7 +138,7 @@ inline unsigned generateServerProgramOptions(const int argc,
          value<int>(&config.max_locations_trip)->default_value(100),
          "Max. locations supported in trip query") //
         ("max-table-size",
-         value<float>(&config.max_locations_distance_table)->default_value(100),
+         value<int64_t>(&config.max_locations_distance_table)->default_value(300025000000),
          "Max. locations supported in distance table query") //
         ("max-matching-size",
          value<int>(&config.max_locations_map_matching)->default_value(100),

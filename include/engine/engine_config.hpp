@@ -33,6 +33,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <boost/filesystem/path.hpp>
 
 #include <string>
+#include <cstdint>
 
 namespace osrm
 {
@@ -82,7 +83,7 @@ struct EngineConfig final
     storage::StorageConfig storage_config;
     int max_locations_trip = -1;
     int max_locations_viaroute = -1;
-    int max_locations_distance_table = -1;
+    int64_t max_locations_distance_table = -1;
     int max_locations_map_matching = -1;
     double max_radius_map_matching = -1.0;
     int max_results_nearest = -1;

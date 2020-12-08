@@ -7,6 +7,7 @@
 #include "engine/routing_algorithms.hpp"
 
 #include "util/json_container.hpp"
+#include <cstdint>
 
 namespace osrm
 {
@@ -18,14 +19,14 @@ namespace plugins
 class TablePlugin final : public BasePlugin
 {
   public:
-    explicit TablePlugin(const int max_locations_distance_table);
+    explicit TablePlugin(const int64_t max_locations_distance_table);
 
     Status HandleRequest(const RoutingAlgorithmsInterface &algorithms,
                          const api::TableParameters &params,
                          osrm::engine::api::ResultT &result) const;
 
   private:
-    const int max_locations_distance_table;
+    const int64_t max_locations_distance_table;
 };
 } // namespace plugins
 } // namespace engine

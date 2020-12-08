@@ -14,6 +14,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <cstdint>
 
 #include <boost/assert.hpp>
 
@@ -24,7 +25,7 @@ namespace engine
 namespace plugins
 {
 
-TablePlugin::TablePlugin(const int max_locations_distance_table)
+TablePlugin::TablePlugin(const int64_t max_locations_distance_table)
     : max_locations_distance_table(max_locations_distance_table)
 {
 }
@@ -60,12 +61,12 @@ Status TablePlugin::HandleRequest(const RoutingAlgorithmsInterface &algorithms,
     const auto num_destinations =
         params.destinations.empty() ? params.coordinates.size() : params.destinations.size();
 
-    if (max_locations_distance_table > 0 &&
-        ((num_sources * num_destinations) >
-         static_cast<std::size_t>(max_locations_distance_table * max_locations_distance_table)))
-    {
-        return Error("TooBig", "Too many table coordinates", result);
-    }
+    // if (max_locations_distance_table > 0 && // Remove size restriction
+    //     ((num_sources * num_destinations) >
+    //      static_cast<std::size_t>(max_locations_distance_table * max_locations_distance_table)))
+    // {
+    //     return Error("TooBig", "Too many table coordinates", result);
+    // }
 
     if (!CheckAlgorithms(params, algorithms, result))
         return Status::Error;
